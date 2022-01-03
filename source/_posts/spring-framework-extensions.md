@@ -3,7 +3,7 @@ title: Spring Framework的扩展接口
 date: 2021-11-23 22:13
 categories:
 - Java
-tags:
+  tags:
 - Java
 - Spring Framework
 ---
@@ -83,8 +83,6 @@ public class TestApplication {
 User{id='123', name='zhangsan'}
 User{id='null', name='null'}
 ```
-
-
 
 ###  BeanPostProcessor接口
 
@@ -200,8 +198,26 @@ User{id='000', name='wangwu'}
 User{id='null', name='null'}
 ```
 
+## SpringMVC的相关接口
+
+SpringMVC的核心组件是DispatcherServlet，DispatcherServlet下还驱动着9大策略组件，分别是：
+
+```
+MultipartResolver				 //文件解析器
+LocaleResolver					//当前环境解析器
+ThemeResolver					//主题解析器
+HandlerMapping					//处理器的映射器
+HandlerAdapter					//处理器的适配器
+HandlerExceptionResolver		 //处理器的异常解析器
+RequestToViewNameTranslator		 //当前环境处理器
+ViewResolver					//视图解析器
+FlashMapManager					//参数传递管理器
+```
+
+最重要的两个接口是HandlerMapping和HandlerAdapter，一个用于扫描web请求的处理器，一个用于对DispatcherServlet接收到的请求进行处理，DispatcherServlet的获取到的参数仅仅是HttpServletRequest和HttpServletResponse
+
+### HandlerMapping接口
+
+HandlerMapping
 
 
-## WebMvc的相关接口
-
-施工中……
