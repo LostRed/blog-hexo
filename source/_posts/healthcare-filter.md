@@ -39,36 +39,9 @@ RuleChain是一个核心接口，AbstractRuleChain抽象类实现了它，我们
 ```java
 public abstract class AbstractRuleChain implements RuleChain, ApplicationContextAware, BeanNameAware, InitializingBean {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected GenericApplicationContext applicationContext;
     protected RuleInfoService ruleInfoService;
-    
-    /**
-     * 在所有spring的配置完成后，调用该方法
-     */
-    @Override
-    public void afterPropertiesSet() {
-        this.refresh(this.init());
-    }
-
-    @Override
-    public void refresh(List<Rule> rules) {
-        if (rules == null || rules.size() == 0) {
-            return;
-        }
-        //将校验校验规则按配置的序列排序
-        List<Rule> list = rules.stream()
-            .sorted(Comparator.comparing(rule -> rule.getRuleInfo().getSeq()))
-            .collect(Collectors.toList());
-        //设置校验规则的先后顺序
-        Iterator<Rule> iterator = list.iterator();
-        Rule rule = iterator.next();
-        head = rule;
-        while (iterator.hasNext()) {
-            Rule next = iterator.next();
-            rule.setNext(next);
-            rule = next;
-        }
-        logger.info("校验规则链({})已生成，共启用{}条规则", beanName, rules.size());
-    }
+    protected LinkedList<Rule> rules = new LinkedList<>();
 
     /**
      * 根据校验规则信息往spring容器中注册校验规则
@@ -94,34 +67,23 @@ public abstract class AbstractRuleChain implements RuleChain, ApplicationContext
         return rule;
     }
 
-    /**
-     * 根据校验规则信息集合往spring容器中注册校验规则
-     *
-     * @param ruleInfoList 校验规则信息集合
-     * @return 校验规则集合
-     */
-    protected List<Rule> register(List<RuleInfo> ruleInfoList) {
-        List<Rule> rules = new ArrayList<>();
-        for (RuleInfo ruleInfo : ruleInfoList) {
-            Rule rule = this.register(ruleInfo);
-            if (rule != null) {
-                rules.add(rule);
-            }
+    @Override
+    public void refresh(List<RuleInfo> ruleInfos) {
+        if (ruleInfos == null || ruleInfos.isEmpty()) {
+            return;
         }
-        return rules;
+        //将校验校验规则按配置的序列排序
+        ruleInfos.stream()
+                .sorted(Comparator.comparing(RuleInfo::getSeq))
+                .map(this::register)
+                .filter(Objects::nonNull)
+                .forEach(e -> this.rules.add(e));
+        logger.info("校验规则链({})已生成，共启用{}条规则", beanName, this.rules.size());
     }
-
-    /**
-     * 根据数据库中的校验规则信息往spring容器中注册校验规则
-     *
-     * @return 校验规则集合
-     */
-    List<Rule> init();
 }
 ```
 
-可以看到AbstractRuleChain实现了InitializingBean接口，重写了afterPropertiesSet()方法，该方法会在所有spring的配置完成后执行。而该方法又调用了本类的refresh()和init()
-的方法，其中refresh()方法仅仅是将所有规则组成了一个规则链。再来看看实现类的init()方法：
+可以看到AbstractRuleChain实现了InitializingBean接口，其子类可以重写afterPropertiesSet()方法，该方法会在所有spring的配置完成后执行。而该方法又调用了本类的refresh()的方法，其中refresh()方法从数据库读取规则信息，并调用register()方法。
 
 ```java
 public class QualityRuleChain extends AbstractRuleChain implements ApplicationListener<QualityRuleChangeEvent> {
@@ -132,24 +94,25 @@ public class QualityRuleChain extends AbstractRuleChain implements ApplicationLi
     @Override
     public void onApplicationEvent(QualityRuleChangeEvent qualityRuleChangeEvent) {
         qualityRuleChangeEvent.getChangeList().stream()
-            .filter(e -> e.getEnable() == 0)
-            .map(RuleInfo::getRuleCode)
-            .forEach(super::removeRule);
+                .filter(e -> e.getEnable() == 0)
+                .map(RuleInfo::getRuleCode)
+                .forEach(super::removeRule);
         qualityRuleChangeEvent.getChangeList().stream()
-            .filter(e -> e.getEnable() == 1)
-            .map(super::register)
-            .forEach(super::addRule);
+                .filter(e -> e.getEnable() == 1)
+                .map(super::register)
+                .filter(Objects::nonNull)
+                .forEach(super::addRule);
     }
 
     @Override
-    public List<Rule> init() {
-        return super.register(ruleInfoService.findEnableByPhase(Phase.QUALITY.getCode()));
+    public void afterPropertiesSet() {
+        List<RuleInfo> list = ruleInfoService.findEnableByPhase(Phase.QUALITY.getCode());
+        this.refresh(list);
     }
 }
 ```
 
-init()方法又调用了父类的register()
-方法，该方法的入参是从数据库查询出来的RuleInfo集合，同时该方法调用了重载方法，可以看到最终程序根据数据库查出的className字段信息，反射创建Rule实例对象，并将该对象注册到Spring容器中。
+register()方法根据数据库查出的className字段信息，反射创建Rule实例对象，并将该对象注册到spring容器中，把所有规则加入集合，组成了一个规则链。
 
 ## 规则链校验流程
 
