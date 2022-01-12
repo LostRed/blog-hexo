@@ -2,10 +2,10 @@
 title: Spring Framework的扩展接口
 date: 2021-11-23 22:13
 categories:
-- Java
-  tags:
-- Java
-- Spring Framework
+  - Java
+tags:
+  - Java
+  - Spring Framework
 ---
 
 ## 操作bean的相关接口
