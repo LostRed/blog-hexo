@@ -92,7 +92,6 @@ pagination_dir: page
 ## include:/exclude: options only apply to the 'source/' folder
 include:
 exclude:
-  - "_posts/healthcare-boot.md"
 ignore:
 
 # Extensions
