@@ -140,7 +140,7 @@ public final class SpringFactoriesLoader {
 }
 ```
 
-到这里我们发现，Spring最终会在类路径的resources文件夹下读取`META-INF/spring.factories`中的所有键值对，并转换为Map<String, List<String>>集合返回，Spring通过这个集合通过反射等一些列操作，将自动配置类的Bean对象注入容器。
+到这里我们发现，Spring最终会在类路径的resources文件夹下读取`META-INF/spring.factories`中的所有键值对，并转换为Map<String, List<String>>集合返回，Spring对这个集合通过反射等一系列操作，将自动配置类的Bean对象实例化并注入容器。
 
 ### spring.factories
 

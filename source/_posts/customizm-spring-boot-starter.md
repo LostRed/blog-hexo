@@ -44,7 +44,7 @@ Spring Boot Starter是Spring Boot中的一个重要机制，它通常由AutoConf
 
 ---
 
-在编写配置类之前，我们需要先了解一下[Spring Boot的自动配置原理](./spring-boot-autoconfigure-principle)。
+在编写配置类之前，我们需要先了解一下[Spring Boot的自动配置原理](spring-boot-autoconfigure-principle.html)。
 
 ```java
 @Configuration
