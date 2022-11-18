@@ -208,8 +208,8 @@ LocaleResolver					//当前环境解析器
 ThemeResolver					//主题解析器
 HandlerMapping					//处理器的映射器
 HandlerAdapter					//处理器的适配器
-HandlerExceptionResolver		 //处理器的异常解析器
-RequestToViewNameTranslator		 //当前环境处理器
+HandlerExceptionResolver		    //处理器的异常解析器
+RequestToViewNameTranslator		    //当前环境处理器
 ViewResolver					//视图解析器
 FlashMapManager					//参数传递管理器
 ```
@@ -218,6 +218,9 @@ FlashMapManager					//参数传递管理器
 
 ### HandlerMapping接口
 
-HandlerMapping
+HandlerMapping的主要职责是根据HttpServletRequest请求找到适合的Handler，其中getHandler方法返回的是HandlerExecutionChain，该类包装了Handler处理器和HandlerInterceptor处理器拦截器。
+HandlerMapping底下的抽象类AbstractHandlerMapping实现类分支有两个，一个是AbstractUrlHandlerMapping，最终映射到一个实例对象上；另一个是AbstractHandlerMethodMapping，最终映射到一个方法上。
 
+### HandlerAdapter接口
 
+HandlerAdapter的主要职责是根据匹配到的Handler处理具体的业务请求，返回模型视图。
