@@ -8,7 +8,7 @@ tags:
   - Spring Boot
 ---
 
-## 注入自动配置类
+## 1. 注入自动配置类
 
 ---
 
@@ -34,7 +34,7 @@ public @interface SpringBootApplication {
 
 @SpringBootApplication也是一个复合注解，@SpringBootConfiguration和@ComponentScan我们已经知道了它们的作用，那么自动配置的原理只可能在@EnableAutoConfiguration这个注解中了。
 
-### 注解@EnableAutoConfiguration
+### 1.1 注解@EnableAutoConfiguration
 
 进入@EnableAutoConfiguration源码，发现@EnableAutoConfiguration也是一个复合注解，其中@AutoConfigurationPackage利用AutoConfigurationPackages.Registrar类给容器中导入一系列组件，这里不做详细的说明。
 
@@ -142,7 +142,7 @@ public final class SpringFactoriesLoader {
 
 到这里我们发现，Spring最终会在类路径的resources文件夹下读取`META-INF/spring.factories`中的所有键值对，并转换为Map<String, List<String>>集合返回，Spring对这个集合通过反射等一系列操作，将自动配置类的Bean对象实例化并注入容器。
 
-### spring.factories
+### 1.2 spring.factories
 
 来到spring-boot-autoconfigure包下的`spring.factories`。
 
@@ -313,7 +313,7 @@ org.springframework.boot.autoconfigure.web.servlet.JspTemplateAvailabilityProvid
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration这个key下的所有全限定类名就是Spring官方写好的所有自动配置类。**因此，只要我们在自己的工程中创建一个META-INF/spring.factories，并将自动配置类的全限定类名写在org.springframework.boot.autoconfigure.EnableAutoConfiguration的key下，就会被Spring扫描并注入容器。**
 
-## 配置条件注解
+## 2. 配置条件注解
 
 ---
 
@@ -337,7 +337,7 @@ Spring官方写好了许多的自动配置类，但这些类并不会全部生�
 
 > 具体用法可参考源码的doc注释文档
 
-## 自动配置顺序注解
+## 3. 自动配置顺序注解
 
 ---
 
@@ -351,13 +351,13 @@ Spring官方写好了许多的自动配置类，但这些类并不会全部生�
 
 Spring Boot的自动配置类均是通过`spring.factories`来加载的，它的优先顺序最低；而通过包扫描导入的一般都是自定义的配置类，优先顺序是最高的，在自动配置类之前载入。
 
-## 配置绑定
+## 4. 配置绑定
 
 ---
 
 Spring Boot中的另一重要机制就是`application.properties`或`application.yaml`配置文件，这个配置文件中的配置项可与Properties类中的字段进行绑定，从而实现配置文件中的跳转和提示。
 
-### 注解@EnableConfigurationProperties
+### 4.1 注解@EnableConfigurationProperties
 
 我们来看看spring-boot-autoconfigure中的MultipartAutoConfiguration类。
 
@@ -376,11 +376,11 @@ public class MultipartAutoConfiguration {
 
 >  通过@Componet注解也可以将Properties类注入容器
 
-### 注解@ConfigurationProperties
+### 4.2 注解@ConfigurationProperties
 
 该注解的作用是绑定`application.properties`中的配置项，通过注解的prefix指定配置前缀，类的字段属性为具体的配置项。Spring会将`application.properties`中配置的值通过setter方法设置到配置类的属性中。因Properties类本身已经在Spring容器中，通过依赖注入和getter方法，其它类就能获取到application.properties配置文件中的值。
 
-## 配置元数据
+## 5. 配置元数据
 
 ---
 

@@ -41,6 +41,8 @@ style:
     enable: true
     background_img: /images/bg.svg   # You can use local image or image external link
     description: 千里之行，始于足下
+    header_transparent: false
+    hitokoto: true
 
   # Scroll style settings
   scroll:
@@ -110,13 +112,17 @@ post:
     # label array item can be one or more
     custom_label_list: [ "Trainee", "Engineer", "Architect", "CTO", "BOSS" ]
 
+  img_align: left  # Option values: left | center
+  copyright_info: true  # Option values: true | false
 
 # ---------------------------------------------------------------------------------------
-# Code copy
+# Code block
 # ---------------------------------------------------------------------------------------
-code_copy:
-  enable: true
-  style: default        # values: default | mac
+code_block:
+  tools:
+    enable: true
+    style: default   # Option values: default | mac
+  highlight_theme: default   # Option values: default | obsidian
 
 
 # ---------------------------------------------------------------------------------------
@@ -126,7 +132,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
-  number: true
+  number: false
 
   # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
   expand_all: true
@@ -207,21 +213,22 @@ rss:
 # Lazyload image
 # ---------------------------------------------------------------------------------------
 lazyload:
-  enable: false
+  enable: true
 
 
 # ---------------------------------------------------------------------------------------
 # CDN
 # ---------------------------------------------------------------------------------------
 cdn:
-  enable: false
+  enable: true       # Option values: true | false
+  provider: jsdelivr  # Option values: jsdelivr | unpkg
 
 
 # ---------------------------------------------------------------------------------------
 # PJAX
 # ---------------------------------------------------------------------------------------
 pjax:
-  enable: false
+  enable: true
 
 
 # ---------------------------------------------------------------------------------------

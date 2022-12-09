@@ -8,9 +8,9 @@ tags:
   - Spring Framework
 ---
 
-## 操作bean的相关接口
+## 1. 操作bean的相关接口
 
-### InitializingBean接口和DisposableBean接口
+### 1.1 InitializingBean接口和DisposableBean接口
 
 InitializingBean是由需要在BeanFactory设置所有属性后做出反应的 bean 实现的接口：例如，执行自定义初始化，或仅检查是否已设置所有必需属性。其afterPropertiesSet()方法在设置所有 bean 属性并满足BeanFactoryAware ， ApplicationContextAware等之后，由包含的BeanFactory调用。
 
@@ -84,7 +84,7 @@ User{id='123', name='zhangsan'}
 User{id='null', name='null'}
 ```
 
-###  BeanPostProcessor接口
+###  1.2 BeanPostProcessor接口
 
 BeanPostProcessor接口提供了两个方法，分别是postProcessBeforeInitialization()和postProcessAfterInitialization()，分别在bean的初始化回调（如 InitializingBean 的afterPropertiesSet或自定义初始化方法）之前和初始化回调（如 InitializingBean 的afterPropertiesSet或自定义初始化方法）之后调用。
 
@@ -131,7 +131,7 @@ User{id='null', name='null'}
 
 
 
-###  Aware接口
+###  1.3 Aware接口
 
 实现Aware接口，能获取增强方法，而处理Aware接口方法的就是上面的BeanPostProcessor接口。
 
@@ -198,7 +198,7 @@ User{id='000', name='wangwu'}
 User{id='null', name='null'}
 ```
 
-## SpringMVC的相关接口
+## 2. SpringMVC的相关接口
 
 SpringMVC的核心组件是DispatcherServlet，DispatcherServlet下还驱动着9大策略组件，分别是：
 
@@ -216,11 +216,11 @@ FlashMapManager					//参数传递管理器
 
 最重要的两个接口是HandlerMapping和HandlerAdapter，一个用于扫描web请求的处理器，一个用于对DispatcherServlet接收到的请求进行处理，DispatcherServlet的获取到的参数仅仅是HttpServletRequest和HttpServletResponse
 
-### HandlerMapping接口
+### 2.1 HandlerMapping接口
 
 HandlerMapping的主要职责是根据HttpServletRequest请求找到适合的Handler，其中getHandler方法返回的是HandlerExecutionChain，该类包装了Handler处理器和HandlerInterceptor处理器拦截器。
 HandlerMapping底下的抽象类AbstractHandlerMapping实现类分支有两个，一个是AbstractUrlHandlerMapping，最终映射到一个实例对象上；另一个是AbstractHandlerMethodMapping，最终映射到一个方法上。
 
-### HandlerAdapter接口
+### 2.2 HandlerAdapter接口
 
 HandlerAdapter的主要职责是根据匹配到的Handler处理具体的业务请求，返回模型视图。

@@ -14,13 +14,13 @@ Spring Boot Starter是Spring Boot中的一个重要机制，它通常由AutoConf
 
 下面我们来看看如何自定义一个Spring Boot Starter。
 
-## 创建Maven工程
+## 1. 创建Maven工程
 
 ---
 
 创建一个maven工程，artifactId起名为xxx-spring-boot-starter，groupId不可在org.springframework路径下。
 
-## 引入依赖
+## 2. 引入依赖
 
 ---
 
@@ -40,7 +40,7 @@ Spring Boot Starter是Spring Boot中的一个重要机制，它通常由AutoConf
 </dependencies>
 ```
 
-## 编写自动配置类
+## 3. 编写自动配置类
 
 ---
 
@@ -64,7 +64,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 info.lostred.autoconfigure.MyAutoConfiguration
 ```
 
-## 编写配置绑定
+## 4. 编写配置绑定
 
 ---
 
@@ -92,7 +92,7 @@ public class MyProperties {
 my.name=lostred
 ```
 
-## 编写配置元数据
+## 5. 编写配置元数据
 
 ---
 
@@ -114,7 +114,7 @@ my.name=lostred
 }
 ```
 
-## 打包发布Starter
+## 6. 打包发布Starter
 
 ---
 
