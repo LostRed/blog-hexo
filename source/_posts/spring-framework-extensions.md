@@ -244,7 +244,7 @@ public final HandlerExecutionChain getHandler(HttpServletRequest request) throws
         initLookupPath(request);
     }
 
-    HandlerExecutionChain executionChain = getHandlerExecutionChain(handler, request);
+    HandlerExecutionChain executionChain = getHandlerExecutionChain(handler, request); // 将请求和处理器或处理器方法包装成HandlerExecutionChain
 
     if (logger.isTraceEnabled()) {
         logger.trace("Mapped to " + handler);
