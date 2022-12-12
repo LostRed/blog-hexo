@@ -203,13 +203,13 @@ User{id='null', name='null'}
 SpringMVC的核心组件是DispatcherServlet，DispatcherServlet下还驱动着9大策略组件，分别是：
 
 ```
-MultipartResolver				 //文件解析器
+MultipartResolver				//文件解析器
 LocaleResolver					//当前环境解析器
 ThemeResolver					//主题解析器
 HandlerMapping					//处理器的映射器
 HandlerAdapter					//处理器的适配器
-HandlerExceptionResolver		    //处理器的异常解析器
-RequestToViewNameTranslator		    //当前环境处理器
+HandlerExceptionResolver                //处理器的异常解析器
+RequestToViewNameTranslator             //当前环境处理器
 ViewResolver					//视图解析器
 FlashMapManager					//参数传递管理器
 ```
@@ -220,7 +220,152 @@ FlashMapManager					//参数传递管理器
 
 HandlerMapping的主要职责是根据HttpServletRequest请求找到适合的Handler，其中getHandler方法返回的是HandlerExecutionChain，该类包装了Handler处理器和HandlerInterceptor处理器拦截器。
 HandlerMapping底下的抽象类AbstractHandlerMapping实现类分支有两个，一个是AbstractUrlHandlerMapping，最终映射到一个实例对象上；另一个是AbstractHandlerMethodMapping，最终映射到一个方法上。
+getHandlerInternal()方法由子类实现。
+
+```java
+@Override
+@Nullable
+public final HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
+    Object handler = getHandlerInternal(request);
+    if (handler == null) {
+        handler = getDefaultHandler();
+    }
+    if (handler == null) {
+        return null;
+    }
+    // Bean name or resolved handler?
+    if (handler instanceof String) {
+        String handlerName = (String) handler;
+        handler = obtainApplicationContext().getBean(handlerName);
+    }
+
+    // Ensure presence of cached lookupPath for interceptors and others
+    if (!ServletRequestPathUtils.hasCachedPath(request)) {
+        initLookupPath(request);
+    }
+
+    HandlerExecutionChain executionChain = getHandlerExecutionChain(handler, request);
+
+    if (logger.isTraceEnabled()) {
+        logger.trace("Mapped to " + handler);
+    }
+    else if (logger.isDebugEnabled() && !DispatcherType.ASYNC.equals(request.getDispatcherType())) {
+        logger.debug("Mapped to " + executionChain.getHandler());
+    }
+
+    if (hasCorsConfigurationSource(handler) || CorsUtils.isPreFlightRequest(request)) {
+        CorsConfiguration config = getCorsConfiguration(handler, request);
+        if (getCorsConfigurationSource() != null) {
+            CorsConfiguration globalConfig = getCorsConfigurationSource().getCorsConfiguration(request);
+            config = (globalConfig != null ? globalConfig.combine(config) : config);
+        }
+        if (config != null) {
+            config.validateAllowCredentials();
+        }
+        executionChain = getCorsHandlerExecutionChain(request, executionChain, config);
+    }
+
+    return executionChain;
+}
+```
+
 
 ### 2.2 HandlerAdapter接口
 
-HandlerAdapter的主要职责是根据匹配到的Handler处理具体的业务请求，返回模型视图。
+HandlerAdapter的主要职责是根据匹配到的Handler处理具体的业务请求，返回模型视图。其核心实现类RequestMappingHandlerAdapter的handleInternal方法实现了改功能。
+
+```java
+@Override
+protected ModelAndView handleInternal(HttpServletRequest request,
+        HttpServletResponse response, HandlerMethod handlerMethod) throws Exception {
+
+    ModelAndView mav;
+    checkRequest(request);
+
+    // Execute invokeHandlerMethod in synchronized block if required.
+    if (this.synchronizeOnSession) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            Object mutex = WebUtils.getSessionMutex(session);
+            synchronized (mutex) {
+                mav = invokeHandlerMethod(request, response, handlerMethod);
+            }
+        }
+        else {
+            // No HttpSession available -> no mutex necessary
+            mav = invokeHandlerMethod(request, response, handlerMethod);
+        }
+    }
+    else {
+        // No synchronization on session demanded at all...
+        mav = invokeHandlerMethod(request, response, handlerMethod);
+    }
+
+    if (!response.containsHeader(HEADER_CACHE_CONTROL)) {
+        if (getSessionAttributesHandler(handlerMethod).hasSessionAttributes()) {
+            applyCacheSeconds(response, this.cacheSecondsForSessionAttributeHandlers);
+        }
+        else {
+            prepareResponse(response);
+        }
+    }
+
+    return mav;
+}
+
+@Nullable
+protected ModelAndView invokeHandlerMethod(HttpServletRequest request,
+        HttpServletResponse response, HandlerMethod handlerMethod) throws Exception {
+
+    ServletWebRequest webRequest = new ServletWebRequest(request, response);
+    try {
+        WebDataBinderFactory binderFactory = getDataBinderFactory(handlerMethod);
+        ModelFactory modelFactory = getModelFactory(handlerMethod, binderFactory);
+
+        ServletInvocableHandlerMethod invocableMethod = createInvocableHandlerMethod(handlerMethod);
+        if (this.argumentResolvers != null) {
+            invocableMethod.setHandlerMethodArgumentResolvers(this.argumentResolvers);
+        }
+        if (this.returnValueHandlers != null) {
+            invocableMethod.setHandlerMethodReturnValueHandlers(this.returnValueHandlers);
+        }
+        invocableMethod.setDataBinderFactory(binderFactory);
+        invocableMethod.setParameterNameDiscoverer(this.parameterNameDiscoverer);
+
+        ModelAndViewContainer mavContainer = new ModelAndViewContainer();
+        mavContainer.addAllAttributes(RequestContextUtils.getInputFlashMap(request));
+        modelFactory.initModel(webRequest, mavContainer, invocableMethod);
+        mavContainer.setIgnoreDefaultModelOnRedirect(this.ignoreDefaultModelOnRedirect);
+
+        AsyncWebRequest asyncWebRequest = WebAsyncUtils.createAsyncWebRequest(request, response);
+        asyncWebRequest.setTimeout(this.asyncRequestTimeout);
+
+        WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);
+        asyncManager.setTaskExecutor(this.taskExecutor);
+        asyncManager.setAsyncWebRequest(asyncWebRequest);
+        asyncManager.registerCallableInterceptors(this.callableInterceptors);
+        asyncManager.registerDeferredResultInterceptors(this.deferredResultInterceptors);
+
+        if (asyncManager.hasConcurrentResult()) {
+            Object result = asyncManager.getConcurrentResult();
+            mavContainer = (ModelAndViewContainer) asyncManager.getConcurrentResultContext()[0];
+            asyncManager.clearConcurrentResult();
+            LogFormatUtils.traceDebug(logger, traceOn -> {
+                String formatted = LogFormatUtils.formatValue(result, !traceOn);
+                return "Resume with async result [" + formatted + "]";
+            });
+            invocableMethod = invocableMethod.wrapConcurrentResult(result);
+        }
+
+        invocableMethod.invokeAndHandle(webRequest, mavContainer); // 最终调用处理其方法，将模型视图传递给ModelAndViewContainer处理
+        if (asyncManager.isConcurrentHandlingStarted()) {
+            return null;
+        }
+
+        return getModelAndView(mavContainer, modelFactory, webRequest);
+    }
+    finally {
+        webRequest.requestCompleted();
+    }
+}
+```
