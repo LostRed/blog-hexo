@@ -5,14 +5,19 @@ categories:
   - Java
 tags:
   - Java
-  - Spring
+  - Spring Framework
 ---
+
 ## 1. Spring中的观察者模式
+
+---
 
 Spring提供了ApplicationListener接口，利用该接口可以将原本bean之间的依赖关系进行解耦。这是一种发布订阅的模式，通过Spring容器发布事件，由订阅的监听器执行对应的代码逻辑。
 需要注意的是，监听器执行与事件发布是同步执行的，如果需要异步执行，需要配合Spring的异步线程池进行处理。
 
 ## 2. 最佳实践
+
+---
 
 实现ApplicationListener接口需要先定义事件类，该事件类需要继承Spring的ApplicationEvent。
 
@@ -78,6 +83,8 @@ public class EventController {
 这样，原本两个类之间的依赖关系就被解除了，改为调用者对容器与事件的依赖。而这些类都可以统一作为公共模块部分供其它业务类模块依赖，从而增加了系统代码的可移植性。
 
 ## 3. 其它相关接口
+
+---
 
 Spring还提供了一个SmartApplicationListener接口。该接口继承了ApplicationListener，这个接口增加排序功能。如果事件的监听器有多个，并且有执行顺序的需求，可以使用该接口，重写getOrder()方法即可。
 该接口的另一个方法supportsEventType()是对事件类型的支持判断，只有该方法的返回值为true的情况下，监听器才会生效。

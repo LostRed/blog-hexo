@@ -8,7 +8,7 @@ tags:
   - Spring Boot
 ---
 
-Spring Boot Starter是Spring Boot中的一个重要机制，它通常由AutoConfiguration和Properties类组成，在程序加载时自动对Spring上下文环境进行配置。其实Spring Boot Starter的任务就是在Spring Boot应用启动前完成自动配置。
+Spring Boot Starter是Spring Boot中的一个重要机制，它借鉴了Java中的SPI(Service Provider Interface)，它通常由AutoConfiguration和Properties类组成，在程序加载时Spring容器启动后，读取资源类路径下特定文件中配置好的类，将它们注册到容器中。其实Spring Boot Starter的任务就是在Spring Boot应用启动前完成自动配置。
 
 > 注意：Spring官方提供的Starter包命名方式为spring-boot-starter-xxx，而第三方Starter包的命名方式为xxx-spring-boot-starter。
 

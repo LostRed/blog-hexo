@@ -10,6 +10,8 @@ tags:
 
 ## 1. 操作bean的相关接口
 
+---
+
 ### 1.1 InitializingBean接口和DisposableBean接口
 
 InitializingBean是由需要在BeanFactory设置所有属性后做出反应的 bean 实现的接口：例如，执行自定义初始化，或仅检查是否已设置所有必需属性。其afterPropertiesSet()方法在设置所有 bean 属性并满足BeanFactoryAware ， ApplicationContextAware等之后，由包含的BeanFactory调用。
@@ -199,6 +201,8 @@ User{id='null', name='null'}
 ```
 
 ## 2. SpringMVC的相关接口
+
+---
 
 SpringMVC的核心组件是DispatcherServlet，DispatcherServlet下还驱动着9大策略组件，分别是：
 
