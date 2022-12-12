@@ -110,7 +110,7 @@ post:
     enable: true
     auto: false  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
     # label array item can be one or more
-    custom_label_list: [ "编程制作人" ]
+    custom_label_list: [ "站长", "Java布道师" ]
 
   img_align: left  # Option values: left | center
   copyright_info: true  # Option values: true | false
