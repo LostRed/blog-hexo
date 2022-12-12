@@ -2,9 +2,9 @@
 title: Java中的Stream流库
 date: 2021-03-11 15:40:40
 categories:
-- Java
-  tags:
-- Java
+  - Java
+tags:
+  - Java
 ---
 
 ## 1. 什么是流
