@@ -91,7 +91,7 @@ public class OrderService implements InitializingBean {
         //查询所有未过期的订单
         List<Order> list = orderMapper.selectList(Wrappers.lambdaQuery(Order.class)
                 .eq(Order::getOrderStatus, "0"));
-        //底层会自动排序
+        //底层会根据元素的compareTo方法自动排序，队首优先出列
         delayQueue.addAll(list);
         //向线程池提交任务
         executorService.submit(() -> {
