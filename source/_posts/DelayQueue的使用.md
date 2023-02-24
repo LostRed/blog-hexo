@@ -59,6 +59,7 @@ public class Order implements Delayed {
 由于这一任务在应用关闭后就会停止，所以在应用启动时，就应该将数据中的订单数据读出并加入队列。
 
 ```java
+@Slf4j
 @Service
 public class OrderService implements InitializingBean {
     @Autowired
@@ -102,6 +103,7 @@ public class OrderService implements InitializingBean {
                     orderMapper.update(null, Wrappers.lambdaUpdate(Order.class)
                             .set(Order::getOrderStatus, "1")
                             .eq(Order::getId, order.getId()));
+                    log.info("订单id={}，已过期", order.getId());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
