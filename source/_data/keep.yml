@@ -59,8 +59,8 @@ social_contact:
   enable: true
   links:
     github: https://github.com/LostRed          # your GitHub URL
-    weixin: https://cdn.jsdelivr.net/gh/LostRed/pic-repository@master/healthcare/5a2b38bfd5797d3b44be936c79c3eed.1cxfsj5581ls.jpg         # your WeChat QR-Code URL
-    qq: https://cdn.jsdelivr.net/gh/LostRed/pic-repository@master/healthcare/QQ.4xo1h00xo9s0.jpg             # your QQ QR-Code URL
+    weixin:          # your WeChat QR-Code URL
+    qq:              # your QQ QR-Code URL
     weibo: https://weibo.com/u/1952097667          # your WeiBo URL
     zhihu:          # your ZhiHu URL
     twitter: https://twitter.com/LevyTeng        # your twitter URL
