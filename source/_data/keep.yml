@@ -6,7 +6,7 @@ base_info:
   author: lostred
   url: https://lostred.info/
   # Logo image (You can use local image, image external link or don’t fill)
-  logo_img: https://cdn.jsdelivr.net/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
+  logo_img: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
 
 
 # ---------------------------------------------------------------------------------------
@@ -17,10 +17,10 @@ style:
   primary_color: '#A63030'
 
   # Avatar (You can use local image or image external link)
-  avatar: https://cdn.jsdelivr.net/gh/LostRed/pic-repository@master/blog/叶精灵1.5169s6r3t2c0.jpg
+  avatar: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/叶精灵1.5169s6r3t2c0.jpg
 
   # Favicon (You can use local image or image external link)
-  favicon: https://cdn.jsdelivr.net/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
+  favicon: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
 
   # Article image align position, value: left | center
   article_img_align: left
