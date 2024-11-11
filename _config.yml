@@ -103,8 +103,8 @@ theme: keep
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: git # 类型填git
-    repo: lostred@42.192.39.181:/var/repo/blog.git
-#    repo: lostred@lostred.info:/var/repo/blog.git
+#    repo: lostred@42.192.39.181:/var/repo/blog.git
+    repo: lostred@lostred.info:/var/repo/blog.git
     branch: master
     message:
 
