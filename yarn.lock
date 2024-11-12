@@ -876,10 +876,10 @@ hexo-theme-fluid@^1.9.3:
   resolved "https://registry.npmjs.org/hexo-theme-fluid/-/hexo-theme-fluid-1.9.3.tgz"
   integrity sha512-PJhEG1N+0HYK3XA+IbBrb2eHtqHAXJoM9Cy921H9m3gb3syKT0PxURUe4+BKD35ITeXTd8o65ExRintBBfu02Q==
 
-hexo-theme-keep@^3.5.2:
-  version "3.5.2"
-  resolved "https://registry.npmjs.org/hexo-theme-keep/-/hexo-theme-keep-3.5.2.tgz"
-  integrity sha512-Z8/9KbLVLUcYlXkIjvYuGn5y9z1VGC2Wut/obYf3cmNfc4ULC7H4NzH39kKxgOUVp8j+dIqECOhLz33ODyalGw==
+hexo-theme-keep@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.npmmirror.com/hexo-theme-keep/-/hexo-theme-keep-4.2.3.tgz"
+  integrity sha512-lTp9W8O7b19TeDIWBqe4popPQY/COsyR51l8Le9STPCPKin/3nbaL0lKIXwT7aV7cV+VC1RkAvph2pDaFXQfpQ==
 
 hexo-theme-landscape@^0.0.3:
   version "0.0.3"

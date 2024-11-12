@@ -1,60 +1,27 @@
-# ---------------------------------------------------------------------------------------
-#  Your basic info
-# ---------------------------------------------------------------------------------------
 base_info:
+  primary_color: "#A63030"
   title: lostred.info
   author: lostred
-  url: https://lostred.info/
-  # Logo image (You can use local image, image external link or don’t fill)
-  logo_img: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
-
-
-# ---------------------------------------------------------------------------------------
-# Theme style settings
-# ---------------------------------------------------------------------------------------
-style:
-  # Theme primary color
-  primary_color: '#A63030'
-
-  # Avatar (You can use local image or image external link)
   avatar: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/叶精灵1.5169s6r3t2c0.jpg
-
-  # Favicon (You can use local image or image external link)
+  logo: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
   favicon: https://jsd.cdn.zzko.cn/gh/LostRed/pic-repository@master/blog/logo.6tklubiwczg0.png
 
-  # Article image align position, value: left | center
-  article_img_align: left
+menu:
+  home: / || fa-solid fa-home                         # 首页
+  archives: /archives || fa-solid fa-box-archive      # 归档
+  tags: /tags || fa-solid fa-tags                     # 标签
+  categories: /categories || fa-solid fa-layer-group  # 分类
+  about: /about || fa-solid fa-user-graduate          # 关于
+#  links: /links || fa-solid fa-link                   # 链接
+#  photos: /photos || fa-solid fa-image                # 相册
 
-  # Left side width
-  left_side_width: 260px
+first_screen:
+  enable: true
+  background_img: /images/bg.svg
+  background_img_dark: /images/bg.svg
+  description: 千里之行，始于足下。
+  hitokoto: true
 
-  # Content area max width
-  content_max_width: 920px
-
-  # Mouse hover
-  hover:
-    shadow: true   # shadow effect when the mouse hover
-    scale: true    # scale effect when the mouse hover
-
-  # First screen
-  first_screen:
-    enable: true
-    background_img: /images/bg.svg   # You can use local image or image external link
-    description: 千里之行，始于足下。
-    header_transparent: false
-    hitokoto: true
-
-  # Scroll style settings
-  scroll:
-    progress_bar:
-      enable: true
-    percent:
-      enable: false
-
-
-# ---------------------------------------------------------------------------------------
-# Social contact link
-# ---------------------------------------------------------------------------------------
 social_contact:
   enable: true
   links:
@@ -63,183 +30,97 @@ social_contact:
     qq:              # your QQ QR-Code URL
     weibo: https://weibo.com/u/1952097667          # your WeiBo URL
     zhihu:          # your ZhiHu URL
-    twitter: https://twitter.com/LevyTeng        # your twitter URL
+    twitter:        # your twitter URL
+    x: https://x.com/LevyTeng
     facebook: https://www.facebook.com/DengLuwei/       # your facebook URL
     email: lostred@outlook.com          # your email
 
+scroll:
+  progress_bar: true
+  percent: false
+  hide_header: false
 
-# ---------------------------------------------------------------------------------------
-# Navigation menu
-# ---------------------------------------------------------------------------------------
-menu:
-  Home: /
-  Archives: /archives
-  Categories: /categories
-  Tags: /tags
-  # Links: /links
-  About: /about
-  # Changelog: /changelog
-
-
-# ---------------------------------------------------------------------------------------
-# Home page article block display settings
-# ---------------------------------------------------------------------------------------
 home_article:
-  category:
-    enable: true     # show category in home page article block
-    limit: 3          # max number of categories shown in home page article block
-  tag:
-    enable: true     # show tags in home page article block
-    limit: 5          # max number of tags shown in home page article block
+  announcement:
+  category: true
+  tag: true
+  post_datetime: updated
+  post_datetime_format: YYYY年MM月DD日 HH:mm
 
-
-# ---------------------------------------------------------------------------------------
-# Post page Settings
-# ---------------------------------------------------------------------------------------
 post:
-  # Post word count
-  # Dependencies: hexo-wordcount (npm install hexo-wordcount)
-  # See: https://github.com/willin/hexo-wordcount
+  author_badge:
+    enable: true         # Option values: true | false
+    level_badge: true    # Option values: true | false
+    custom_badge: [ "One", "Two", "Three" ]
   word_count:
-    enable: true
     wordcount: true  # word count, one article
     min2read: true   # time to read, one article
-
-  # Author label
-  author_label:
-    enable: true
-    auto: false  # if true, show Lv1, Lv2, Lv3... , If false, show custom label
-    # label array item can be one or more
-    custom_label_list: ["站长","Java布道师"]
-
-  img_align: left  # Option values: left | center
+  datetime_format: "YYYY-MM-DD HH:mm:ss"
   copyright_info: true  # Option values: true | false
+  share: true           # Option values: true | false
+  reward:
+    enable: false        # Option values: true | false
+    img_link:            # Image link for the payment QR code
+    text:                # Custom reward text, Can be null
+  img_align: left
+  created_datetime_icon: fa-solid fa-star
+  updated_datetime_icon: fa-solid fa-arrows-rotate
 
-# ---------------------------------------------------------------------------------------
-# Code block
-# ---------------------------------------------------------------------------------------
 code_block:
   tools:
-    enable: true
-    style: default   # Option values: default | mac
-  highlight_theme: default   # Option values: default | obsidian
+    enable: true             # Option values: true | false
+    style: default            # Option values: default | mac
+  highlight_theme: default    # Option values: default | obsidian
 
-
-# ---------------------------------------------------------------------------------------
-# Table of Contents in the Sidebar
-# ---------------------------------------------------------------------------------------
 toc:
-  enable: true
+  enable: true      # Option values: true | false
+  number: false      # Option values: true | false
+  expand_all: true  # Option values: true | false
+  init_open: true    # Option values: true | false
+  layout: right      # Option values: left | right
 
-  # Automatically add list number to toc.
-  number: false
-
-  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
-  expand_all: true
-
-  # If true, open TOC every time when you enter the article page
-  init_open: true
-
-
-# ---------------------------------------------------------------------------------------
-# Post copyright info
-# ---------------------------------------------------------------------------------------
-copyright_info:
-  enable: true
-
-
-# ---------------------------------------------------------------------------------------
-# Website count
-# ---------------------------------------------------------------------------------------
 website_count:
-  # busuanzi
-  # See: http://ibruce.info/2015/04/04/busuanzi/
   busuanzi_count:
-    enable: true
-    site_uv: true
-    site_pv: true
-    page_pv: true
+    enable: true     # Option values: true | false
+    site_uv: true    # Option values: true | false
+    site_pv: true    # Option values: true | false
+    page_pv: true    # Option values: true | false
 
-
-# ---------------------------------------------------------------------------------------
-# Local Search
-# Dependencies: hexo-generator-searchdb
-# See: https://github.com/theme-next/hexo-generator-searchdb
-# ---------------------------------------------------------------------------------------
 local_search:
   enable: true
   preload: true     # Preload the search data when the page loads
 
-
-# ---------------------------------------------------------------------------------------
-# Comment plugin
-# ---------------------------------------------------------------------------------------
 comment:
   enable: true
   use: gitalk  # values: valine | gitalk | twikoo
-
-  # Valine
-  # See: https://github.com/xCss/Valine
-  valine:
-    appid:                # your leancloud application appid
-    appkey:               # your leancloud application appkey
-    placeholder:          # your placeholder
-
-  # Gitalk
-  # See: https://github.com/gitalk/gitalk
   gitalk:
     github_id: LostRed            # GitHub repo owner
     repository: lostred.info-comments           # Repository name to store issues
     client_id: 3971d804ce3d0e39fed5            # GitHub Application Client ID
     client_secret: 96e5699c48ba68e00f2c9d75013e37f4c01e3b7a        # GitHub Application Client Secret
 
-  # Twikoo
-  # See: https://github.com/imaegoo/twikoo
-  twikoo:
-    env_id:                # Tencent Cloud environment id
-    region:                # environment region. If select Guangzhou, fill in "ap-guangzhou".
-
-
-# ---------------------------------------------------------------------------------------
-# RSS
-# Dependencies: hexo-generator-feed
-# See: https://github.com/hexojs/hexo-generator-feed
-# ---------------------------------------------------------------------------------------
 rss:
   enable: false
 
-
-# ---------------------------------------------------------------------------------------
-# Lazyload image
-# ---------------------------------------------------------------------------------------
 lazyload:
   enable: true
 
-
-# ---------------------------------------------------------------------------------------
-# CDN
-# ---------------------------------------------------------------------------------------
 cdn:
   enable: true       # Option values: true | false
   provider: unpkg  # Option values: jsdelivr | unpkg
 
-
-# ---------------------------------------------------------------------------------------
-# PJAX
-# ---------------------------------------------------------------------------------------
 pjax:
   enable: false
 
-
-# ---------------------------------------------------------------------------------------
-# Footer settings
-# ---------------------------------------------------------------------------------------
 footer:
-  since: 2020      # the starting year of your website, Can be null
-  icp: 闽ICP备2020021117号            # ICP record number of your website, Can be null
-
-
-# ---------------------------------------------------------------------------------------
-# Keep version (Please don't modify)
-# ---------------------------------------------------------------------------------------
-version: 3.4.3
+  since: 2020            # The starting year of your website, Can be null
+  word_count: true      # Option values: true | false
+  site_deploy:
+    enable: false        # Option values: true | false
+    provider: github     # Option values: github | vercel | netlify | cloudflare | gitee | aliyun | tencent_cloud | upyun
+    url:                 # Your deployment provider url, Can be null
+  record:
+    enable: true        # Option values: true | false
+    list:
+      - code: 闽ICP备2020021117号           # record code of your website
+        link: https://beian.miit.gov.cn           # record link of your website, Can be null
