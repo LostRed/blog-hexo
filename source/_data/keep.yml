@@ -55,7 +55,7 @@ post:
   word_count:
     wordcount: true  # word count, one article
     min2read: true   # time to read, one article
-  datetime_format: "YYYY-MM-DD HH:mm:ss"
+  datetime_format: "YYYY年MM月DD日 HH:mm"
   copyright_info: true  # Option values: true | false
   share: true           # Option values: true | false
   reward:
