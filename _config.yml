@@ -104,7 +104,7 @@ theme: keep
 deploy:
   - type: git # 类型填git
 #    repo: lostred@42.192.39.181:/var/repo/blog.git
-    repo: root@lostred.info:/var/repo/blog.git
+    repo: lostred@lostred.info:/home/lostred/repo/blog.git
     branch: master
     message:
 

@@ -20,7 +20,7 @@ first_screen:
   background_img: /images/bg.svg
   background_img_dark: /images/bg.svg
   description: 千里之行，始于足下。
-  hitokoto: false
+  hitokoto: true
 
 social_contact:
   enable: true
