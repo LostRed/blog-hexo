@@ -2,9 +2,9 @@ base_info:
   primary_color: "#A63030"
   title: lostred.info
   author: lostred
-  avatar: https://cdn.jsdelivr.net/gh/LostRed/picx-images-hosting@master/blog/叶精灵1.5169s6r3t2c0.jpg
-  logo: https://cdn.jsdelivr.net/gh/LostRed/picx-images-hosting@master/blog/logo.6tklubiwczg0.png
-  favicon: https://cdn.jsdelivr.net/gh/LostRed/picx-images-hosting@master/blog/logo.6tklubiwczg0.png
+  avatar: https://cdn.jsdelivr.net/gh/LostRed/picx-images-hosting@master/blog/叶精灵1.41y2ublvrw.webp
+  logo: https://cdn.jsdelivr.net/gh/LostRed/picx-images-hosting@master/blog/logo2.54xs57g49t.webp
+  favicon: https://cdn.jsdelivr.net/gh/LostRed/picx-images-hosting@master/blog/logo2.54xs57g49t.webp
 
 menu:
   home: / || fa-solid fa-home                         # 首页
