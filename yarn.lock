@@ -189,7 +189,7 @@ cheerio@^0.19.0:
     htmlparser2 "~3.8.1"
     lodash "^3.2.0"
 
-chokidar@^3.0.0, chokidar@^3.3.0, chokidar@^3.5.3:
+chokidar@^3.0.0, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.npmjs.org/chokidar/-/chokidar-3.5.3.tgz"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -282,17 +282,17 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+css-parse@1.7.x:
+  version "1.7.0"
+  resolved "https://registry.npmmirror.com/css-parse/download/css-parse-1.7.0.tgz"
+  integrity sha1-Mh9s9zeCpv91ERE5D8BeLGV9jJs=
+
 css-parse@~2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/css-parse/download/css-parse-2.0.0.tgz"
   integrity sha1-pGjuZnwW2BzPBcWMONKpfHgNv9Q=
   dependencies:
     css "^2.0.0"
-
-css-parse@1.7.x:
-  version "1.7.0"
-  resolved "https://registry.npmmirror.com/css-parse/download/css-parse-1.7.0.tgz"
-  integrity sha1-Mh9s9zeCpv91ERE5D8BeLGV9jJs=
 
 css-select@~1.0.0:
   version "1.0.0"
@@ -350,19 +350,12 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-debug@*:
+debug@*, debug@4:
   version "4.3.2"
   resolved "https://registry.npmmirror.com/debug/download/debug-4.3.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdebug%2Fdownload%2Fdebug-4.3.2.tgz"
   integrity sha1-8KScGKyHeeMdSgxgKd+3aHPHQos=
   dependencies:
     ms "2.1.2"
-
-debug@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmmirror.com/debug/download/debug-3.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdebug%2Fdownload%2Fdebug-3.1.0.tgz"
-  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
-  dependencies:
-    ms "2.0.0"
 
 debug@2.6.9:
   version "2.6.9"
@@ -371,12 +364,12 @@ debug@2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@4:
-  version "4.3.2"
-  resolved "https://registry.npmmirror.com/debug/download/debug-4.3.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdebug%2Fdownload%2Fdebug-4.3.2.tgz"
-  integrity sha1-8KScGKyHeeMdSgxgKd+3aHPHQos=
+debug@~3.1.0:
+  version "3.1.0"
+  resolved "https://registry.npmmirror.com/debug/download/debug-3.1.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdebug%2Fdownload%2Fdebug-3.1.0.tgz"
+  integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
   dependencies:
-    ms "2.1.2"
+    ms "2.0.0"
 
 decimal.js@^10.2.1:
   version "10.3.1"
@@ -418,6 +411,14 @@ destroy@~1.0.4:
   resolved "https://registry.npmmirror.com/destroy/download/destroy-1.0.4.tgz"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
+dom-serializer@0, dom-serializer@~0.1.0:
+  version "0.1.1"
+  resolved "https://registry.npmmirror.com/dom-serializer/download/dom-serializer-0.1.1.tgz?cache=0&sync_timestamp=1621256819522&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdom-serializer%2Fdownload%2Fdom-serializer-0.1.1.tgz"
+  integrity sha1-HsQFnihLq+027sKUHUqXChic58A=
+  dependencies:
+    domelementtype "^1.3.0"
+    entities "^1.1.1"
+
 dom-serializer@^1.0.1:
   version "1.4.1"
   resolved "https://registry.npmjs.org/dom-serializer/-/dom-serializer-1.4.1.tgz"
@@ -436,15 +437,7 @@ dom-serializer@^2.0.0:
     domhandler "^5.0.2"
     entities "^4.2.0"
 
-dom-serializer@~0.1.0, dom-serializer@0:
-  version "0.1.1"
-  resolved "https://registry.npmmirror.com/dom-serializer/download/dom-serializer-0.1.1.tgz?cache=0&sync_timestamp=1621256819522&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdom-serializer%2Fdownload%2Fdom-serializer-0.1.1.tgz"
-  integrity sha1-HsQFnihLq+027sKUHUqXChic58A=
-  dependencies:
-    domelementtype "^1.3.0"
-    entities "^1.1.1"
-
-domelementtype@^1.3.0, domelementtype@1:
+domelementtype@1, domelementtype@^1.3.0:
   version "1.3.1"
   resolved "https://registry.npmmirror.com/domelementtype/download/domelementtype-1.3.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fdomelementtype%2Fdownload%2Fdomelementtype-1.3.1.tgz"
   integrity sha1-0EjESzew0Qp/Kj1f7j9DM9eQSB8=
@@ -461,6 +454,13 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
+domhandler@2.3:
+  version "2.3.0"
+  resolved "https://registry.npmmirror.com/domhandler/download/domhandler-2.3.0.tgz"
+  integrity sha1-LeWaCCLVAn+r/28DLCsloqir5zg=
+  dependencies:
+    domelementtype "1"
+
 domhandler@^4.2.0, domhandler@^4.2.2:
   version "4.3.1"
   resolved "https://registry.npmjs.org/domhandler/-/domhandler-4.3.1.tgz"
@@ -475,17 +475,25 @@ domhandler@^5.0.2, domhandler@^5.0.3:
   dependencies:
     domelementtype "^2.3.0"
 
-domhandler@2.3:
-  version "2.3.0"
-  resolved "https://registry.npmmirror.com/domhandler/download/domhandler-2.3.0.tgz"
-  integrity sha1-LeWaCCLVAn+r/28DLCsloqir5zg=
-  dependencies:
-    domelementtype "1"
-
 dompurify@^2.3.0:
   version "2.3.3"
   resolved "https://registry.npmmirror.com/dompurify/download/dompurify-2.3.3.tgz"
   integrity sha1-wa8+uIvkcyRDKWTYq8dc9LmNY0w=
+
+domutils@1.4:
+  version "1.4.3"
+  resolved "https://registry.npmmirror.com/domutils/download/domutils-1.4.3.tgz"
+  integrity sha1-CGVRN5bGswYDGFDhdVFrr4C3Km8=
+  dependencies:
+    domelementtype "1"
+
+domutils@1.5:
+  version "1.5.1"
+  resolved "https://registry.npmmirror.com/domutils/download/domutils-1.5.1.tgz"
+  integrity sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8=
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
 
 domutils@^2.8.0:
   version "2.8.0"
@@ -505,21 +513,6 @@ domutils@^3.1.0:
     domelementtype "^2.3.0"
     domhandler "^5.0.3"
 
-domutils@1.4:
-  version "1.4.3"
-  resolved "https://registry.npmmirror.com/domutils/download/domutils-1.4.3.tgz"
-  integrity sha1-CGVRN5bGswYDGFDhdVFrr4C3Km8=
-  dependencies:
-    domelementtype "1"
-
-domutils@1.5:
-  version "1.5.1"
-  resolved "https://registry.npmmirror.com/domutils/download/domutils-1.5.1.tgz"
-  integrity sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8=
-  dependencies:
-    dom-serializer "0"
-    domelementtype "1"
-
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/ee-first/download/ee-first-1.1.1.tgz"
@@ -535,12 +528,12 @@ encodeurl@~1.0.2:
   resolved "https://registry.npmmirror.com/encodeurl/download/encodeurl-1.0.2.tgz"
   integrity sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
 
-entities@^1.1.1, entities@~1.1.1:
-  version "1.1.2"
-  resolved "https://registry.npmmirror.com/entities/download/entities-1.1.2.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fentities%2Fdownload%2Fentities-1.1.2.tgz"
-  integrity sha1-vfpzUplmTfr9NFKe1PhSKidf6lY=
+entities@1.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/entities/download/entities-1.0.0.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fentities%2Fdownload%2Fentities-1.0.0.tgz"
+  integrity sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY=
 
-entities@^1.1.2:
+entities@^1.1.1, entities@^1.1.2, entities@~1.1.1:
   version "1.1.2"
   resolved "https://registry.npmmirror.com/entities/download/entities-1.1.2.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fentities%2Fdownload%2Fentities-1.1.2.tgz"
   integrity sha1-vfpzUplmTfr9NFKe1PhSKidf6lY=
@@ -559,11 +552,6 @@ entities@^4.2.0, entities@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmmirror.com/entities/-/entities-4.5.0.tgz"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
-
-entities@1.0:
-  version "1.0.0"
-  resolved "https://registry.npmmirror.com/entities/download/entities-1.0.0.tgz?cache=0&sync_timestamp=1628508126700&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fentities%2Fdownload%2Fentities-1.0.0.tgz"
-  integrity sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY=
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -651,6 +639,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.npmmirror.com/fs.realpath/download/fs.realpath-1.0.0.tgz"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+fsevents@~2.3.2:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
+  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
+
 function-bind@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmmirror.com/function-bind/-/function-bind-1.1.2.tgz"
@@ -663,18 +656,6 @@ glob-parent@~5.1.2:
   dependencies:
     is-glob "^4.0.1"
 
-glob@^7.1.6:
-  version "7.2.0"
-  resolved "https://registry.npmmirror.com/glob/download/glob-7.2.0.tgz"
-  integrity sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.4"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
 glob@7.0.x:
   version "7.0.6"
   resolved "https://registry.npmmirror.com/glob/download/glob-7.0.6.tgz"
@@ -684,6 +665,18 @@ glob@7.0.x:
     inflight "^1.0.4"
     inherits "2"
     minimatch "^3.0.2"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
+glob@^7.1.6:
+  version "7.2.0"
+  resolved "https://registry.npmmirror.com/glob/download/glob-7.2.0.tgz"
+  integrity sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.4"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -757,17 +750,7 @@ hexo-fs@^3.0.1:
     graceful-fs "^4.1.11"
     hexo-util "^2.0.0"
 
-hexo-fs@^4.1.1:
-  version "4.1.3"
-  resolved "https://registry.npmmirror.com/hexo-fs/-/hexo-fs-4.1.3.tgz"
-  integrity sha512-Q92zQ5PlVDouvSWFLXQoFSTLIUIODikUJs2BfAXQglyOEjN1dOQn1Z5Nimk/7GHof17R5h/uObCQLnZAjzI2tg==
-  dependencies:
-    bluebird "^3.7.2"
-    chokidar "^3.5.3"
-    graceful-fs "^4.2.10"
-    hexo-util "^3.0.1"
-
-hexo-fs@^4.1.3:
+hexo-fs@^4.1.1, hexo-fs@^4.1.3:
   version "4.1.3"
   resolved "https://registry.npmmirror.com/hexo-fs/-/hexo-fs-4.1.3.tgz"
   integrity sha512-Q92zQ5PlVDouvSWFLXQoFSTLIUIODikUJs2BfAXQglyOEjN1dOQn1Z5Nimk/7GHof17R5h/uObCQLnZAjzI2tg==
@@ -1034,7 +1017,7 @@ inflight@^1.0.4:
     once "^1.3.0"
     wrappy "1"
 
-inherits@^2.0.3, inherits@~2.0.1, inherits@2, inherits@2.0.4:
+inherits@2, inherits@2.0.4, inherits@^2.0.3, inherits@~2.0.1:
   version "2.0.4"
   resolved "https://registry.npmmirror.com/inherits/download/inherits-2.0.4.tgz"
   integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
@@ -1109,7 +1092,7 @@ js-yaml-js-types@^1.0.0:
   dependencies:
     esprima "^4.0.1"
 
-js-yaml@^4.1.0, js-yaml@4.x:
+js-yaml@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmmirror.com/js-yaml/download/js-yaml-4.1.0.tgz"
   integrity sha1-wftl+PUBeQHN0slRhkuhhFihBgI=
@@ -1197,7 +1180,7 @@ micromatch@^4.0.4:
     braces "^3.0.1"
     picomatch "^2.2.3"
 
-"mime-db@>= 1.43.0 < 2", mime-db@1.50.0:
+mime-db@1.50.0, "mime-db@>= 1.43.0 < 2":
   version "1.50.0"
   resolved "https://registry.npmmirror.com/mime-db/download/mime-db-1.50.0.tgz"
   integrity sha1-q9SslOmNPA4YUBbGerRdX95AwR8=
@@ -1209,15 +1192,15 @@ mime-types@^2.1.12, mime-types@~2.1.24:
   dependencies:
     mime-db "1.50.0"
 
-mime@^2.4.3:
-  version "2.6.0"
-  resolved "https://registry.npmmirror.com/mime/download/mime-2.6.0.tgz?cache=0&sync_timestamp=1635900769949&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-2.6.0.tgz"
-  integrity sha1-oqaCqVzU0MsdYlfij4PafjWAA2c=
-
 mime@1.6.0:
   version "1.6.0"
   resolved "https://registry.npmmirror.com/mime/download/mime-1.6.0.tgz?cache=0&sync_timestamp=1635900769949&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-1.6.0.tgz"
   integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
+
+mime@^2.4.3:
+  version "2.6.0"
+  resolved "https://registry.npmmirror.com/mime/download/mime-2.6.0.tgz?cache=0&sync_timestamp=1635900769949&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmime%2Fdownload%2Fmime-2.6.0.tgz"
+  integrity sha1-oqaCqVzU0MsdYlfij4PafjWAA2c=
 
 min-indent@^1.0.0:
   version "1.0.1"
@@ -1236,17 +1219,17 @@ minimist@^1.2.5:
   resolved "https://registry.npmmirror.com/minimist/download/minimist-1.2.5.tgz"
   integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
 
-mkdirp@~1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npmmirror.com/mkdirp/download/mkdirp-1.0.4.tgz?cache=0&sync_timestamp=1621254880484&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmkdirp%2Fdownload%2Fmkdirp-1.0.4.tgz"
-  integrity sha1-PrXtYmInVteaXw4qIh3+utdcL34=
-
 mkdirp@0.5.x:
   version "0.5.5"
   resolved "https://registry.npmmirror.com/mkdirp/download/mkdirp-0.5.5.tgz?cache=0&sync_timestamp=1621254880484&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmkdirp%2Fdownload%2Fmkdirp-0.5.5.tgz"
   integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
   dependencies:
     minimist "^1.2.5"
+
+mkdirp@~1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmmirror.com/mkdirp/download/mkdirp-1.0.4.tgz?cache=0&sync_timestamp=1621254880484&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmkdirp%2Fdownload%2Fmkdirp-1.0.4.tgz"
+  integrity sha1-PrXtYmInVteaXw4qIh3+utdcL34=
 
 moize@^6.1.6:
   version "6.1.6"
@@ -1263,7 +1246,7 @@ moment-timezone@^0.5.34:
   dependencies:
     moment ">= 2.9.0"
 
-moment@^2.18.0, moment@^2.29.1, "moment@>= 2.9.0":
+"moment@>= 2.9.0", moment@^2.18.0, moment@^2.29.1:
   version "2.29.1"
   resolved "https://registry.npmmirror.com/moment/download/moment-2.29.1.tgz"
   integrity sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M=
@@ -1326,7 +1309,7 @@ nth-check@~1.0.0:
   dependencies:
     boolbase "~1.0.0"
 
-nunjucks@^3.0.0, nunjucks@^3.2.1, nunjucks@^3.2.2, nunjucks@^3.2.3:
+nunjucks@^3.2.1, nunjucks@^3.2.2, nunjucks@^3.2.3:
   version "3.2.3"
   resolved "https://registry.npmmirror.com/nunjucks/download/nunjucks-3.2.3.tgz"
   integrity sha1-GzNhUkcpDpTigmO12FXs52VkijE=
@@ -1497,30 +1480,30 @@ rfdc@^1.3.0:
   resolved "https://registry.npmmirror.com/rfdc/-/rfdc-1.4.1.tgz"
   integrity sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==
 
-safe-buffer@~5.2.0:
-  version "5.2.1"
-  resolved "https://registry.npmmirror.com/safe-buffer/-/safe-buffer-5.2.1.tgz"
-  integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
-
 safe-buffer@5.1.2:
   version "5.1.2"
   resolved "https://registry.npmmirror.com/safe-buffer/download/safe-buffer-5.1.2.tgz"
   integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
 
-safer-buffer@^2.1.2, "safer-buffer@>= 2.1.2 < 3":
+safe-buffer@~5.2.0:
+  version "5.2.1"
+  resolved "https://registry.npmmirror.com/safe-buffer/-/safe-buffer-5.2.1.tgz"
+  integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
+
+"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npmmirror.com/safer-buffer/download/safer-buffer-2.1.2.tgz"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
-
-sax@~1.2.4:
-  version "1.2.4"
-  resolved "https://registry.npmmirror.com/sax/download/sax-1.2.4.tgz"
-  integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
 sax@0.5.x:
   version "0.5.8"
   resolved "https://registry.npmmirror.com/sax/download/sax-0.5.8.tgz"
   integrity sha1-1HLbIo6zMcJQaw6MFVJK25OdEsE=
+
+sax@~1.2.4:
+  version "1.2.4"
+  resolved "https://registry.npmmirror.com/sax/download/sax-1.2.4.tgz"
+  integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
 saxes@^5.0.1:
   version "5.0.1"
@@ -1596,6 +1579,13 @@ source-map-url@^0.4.0:
   resolved "https://registry.npmmirror.com/source-map-url/download/source-map-url-0.4.1.tgz"
   integrity sha1-CvZmBadFpaL5HPG7+KevvCg97FY=
 
+source-map@0.1.x:
+  version "0.1.43"
+  resolved "https://registry.npmmirror.com/source-map/download/source-map-0.1.43.tgz?cache=0&sync_timestamp=1624608014898&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsource-map%2Fdownload%2Fsource-map-0.1.43.tgz"
+  integrity sha1-wkvBRspRfBRx9drL4lcbK3+eM0Y=
+  dependencies:
+    amdefine ">=0.0.4"
+
 source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.npmmirror.com/source-map/download/source-map-0.6.1.tgz?cache=0&sync_timestamp=1624608014898&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsource-map%2Fdownload%2Fsource-map-0.6.1.tgz"
@@ -1605,13 +1595,6 @@ source-map@^0.7.3:
   version "0.7.3"
   resolved "https://registry.npmmirror.com/source-map/download/source-map-0.7.3.tgz?cache=0&sync_timestamp=1624608014898&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsource-map%2Fdownload%2Fsource-map-0.7.3.tgz"
   integrity sha1-UwL4FpAxc1ImVECS5kmB91F1A4M=
-
-source-map@0.1.x:
-  version "0.1.43"
-  resolved "https://registry.npmmirror.com/source-map/download/source-map-0.1.43.tgz?cache=0&sync_timestamp=1624608014898&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsource-map%2Fdownload%2Fsource-map-0.1.43.tgz"
-  integrity sha1-wkvBRspRfBRx9drL4lcbK3+eM0Y=
-  dependencies:
-    amdefine ">=0.0.4"
 
 sprintf-js@^1.1.2:
   version "1.1.3"
@@ -1649,6 +1632,18 @@ strip-indent@^3.0.0:
   dependencies:
     min-indent "^1.0.0"
 
+stylus@0.54.5:
+  version "0.54.5"
+  resolved "https://registry.npmmirror.com/stylus/download/stylus-0.54.5.tgz"
+  integrity sha1-QrlWCTHKcJDOhRWnmLqeaqPW3Hk=
+  dependencies:
+    css-parse "1.7.x"
+    debug "*"
+    glob "7.0.x"
+    mkdirp "0.5.x"
+    sax "0.5.x"
+    source-map "0.1.x"
+
 stylus@^0.54.8:
   version "0.54.8"
   resolved "https://registry.npmmirror.com/stylus/download/stylus-0.54.8.tgz"
@@ -1662,18 +1657,6 @@ stylus@^0.54.8:
     sax "~1.2.4"
     semver "^6.3.0"
     source-map "^0.7.3"
-
-stylus@0.54.5:
-  version "0.54.5"
-  resolved "https://registry.npmmirror.com/stylus/download/stylus-0.54.5.tgz"
-  integrity sha1-QrlWCTHKcJDOhRWnmLqeaqPW3Hk=
-  dependencies:
-    css-parse "1.7.x"
-    debug "*"
-    glob "7.0.x"
-    mkdirp "0.5.x"
-    sax "0.5.x"
-    source-map "0.1.x"
 
 supports-color@^7.1.0:
   version "7.2.0"
